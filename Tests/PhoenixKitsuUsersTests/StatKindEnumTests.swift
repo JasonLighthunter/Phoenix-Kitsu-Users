@@ -3,10 +3,10 @@ import XCTest
 
 class StatKindEnumTests: XCTestCase {
   func testStatKindEnum() {
-    XCTAssertEqual(StatKindEnum(rawValue: "anime-genre-breakdown"),
-                   StatKindEnum.animeGenreBreakdown)
-    XCTAssertEqual(StatKindEnum(rawValue: "manga-genre-breakdown"),
-                   StatKindEnum.mangaGenreBreakdown)
+    XCTAssertEqual(StatKindEnum(rawValue: "anime-category-breakdown"),
+                   StatKindEnum.animeCategoryBreakdown)
+    XCTAssertEqual(StatKindEnum(rawValue: "manga-category-breakdown"),
+                   StatKindEnum.mangaCategoryBreakdown)
     XCTAssertEqual(StatKindEnum(rawValue: "anime-activity-history"),
                    StatKindEnum.animeActivityHistory)
     XCTAssertEqual(StatKindEnum(rawValue: "manga-activity-history"),
