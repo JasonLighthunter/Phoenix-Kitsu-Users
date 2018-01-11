@@ -41,7 +41,8 @@ class BlockTests: XCTestCase {
   ]
   
   let invalidMissingDataJSON: [String : Any] = [
-    "id" : "",
+    "id" : "4",
+    "type" : "blocks",
     "links" : [
       "self" : "https://kitsu.io/api/edge/blocks/4"
     ],
@@ -51,8 +52,8 @@ class BlockTests: XCTestCase {
   ]
   
   let invalidNilDataJSON: [String : Any?] = [
-    "id" : nil,
-    "type" : nil,
+    "id" : "4",
+    "type" : "blocks",
     "links" : [
       "self" : "https://kitsu.io/api/edge/blocks/4"
     ],
@@ -147,8 +148,14 @@ class BlockTests: XCTestCase {
     } else {
       block = nil
     }
+    blockAttributes = block?.attributes
     
-    XCTAssertNil(block)
+    XCTAssertNotNil(block)
+    
+    XCTAssertEqual(block?.objectID, "4")
+    XCTAssertEqual(block?.type, "blocks")
+    
+    XCTAssertNil(blockAttributes)
   }
   
   func testBlockInvalidNilData() {
@@ -160,8 +167,14 @@ class BlockTests: XCTestCase {
     } else {
       block = nil
     }
+    blockAttributes = block?.attributes
     
-    XCTAssertNil(block)
+    XCTAssertNotNil(block)
+    
+    XCTAssertEqual(block?.objectID, "4")
+    XCTAssertEqual(block?.type, "blocks")
+    
+    XCTAssertNil(blockAttributes)
   }
 }
 

@@ -44,7 +44,8 @@ class FavoriteTests: XCTestCase {
   ]
   
   let invalidMissingDataJSON: [String : Any] = [
-    "id" : "",
+    "id" : "4",
+    "type" : "favorites",
     "links" : [
       "self" : "https://kitsu.io/api/edge/favorites/4"
     ],
@@ -55,8 +56,8 @@ class FavoriteTests: XCTestCase {
   ]
   
   let invalidNilDataJSON: [String : Any?] = [
-    "id" : nil,
-    "type" : nil,
+    "id" : "4",
+    "type" : "favorites",
     "links" : [
       "self" : "https://kitsu.io/api/edge/favorites/4"
     ],
@@ -155,8 +156,14 @@ class FavoriteTests: XCTestCase {
     } else {
       favorite = nil
     }
+    favoriteAttributes = favorite?.attributes
     
-    XCTAssertNil(favorite)
+    XCTAssertNotNil(favorite)
+    
+    XCTAssertEqual(favorite?.objectID, "4")
+    XCTAssertEqual(favorite?.type, "favorites")
+    
+    XCTAssertNil(favoriteAttributes)
   }
   
   func testFavoriteInvalidNilData() {
@@ -168,7 +175,13 @@ class FavoriteTests: XCTestCase {
     } else {
       favorite = nil
     }
+    favoriteAttributes = favorite?.attributes
     
-    XCTAssertNil(favorite)
+    XCTAssertNotNil(favorite)
+    
+    XCTAssertEqual(favorite?.objectID, "4")
+    XCTAssertEqual(favorite?.type, "favorites")
+    
+    XCTAssertNil(favoriteAttributes)
   }
 }

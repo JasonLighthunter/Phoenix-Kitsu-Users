@@ -41,7 +41,8 @@ class FollowTests: XCTestCase {
   ]
   
   let invalidMissingDataJSON: [String : Any] = [
-    "id" : "",
+    "id" : "4",
+    "type" : "follows",
     "links" : [
       "self" : "https://kitsu.io/api/edge/follows/4"
     ],
@@ -51,8 +52,8 @@ class FollowTests: XCTestCase {
   ]
   
   let invalidNilDataJSON: [String : Any?] = [
-    "id" : nil,
-    "type" : nil,
+    "id" : "4",
+    "type" : "follows",
     "links" : [
       "self" : "https://kitsu.io/api/edge/follows/4"
     ],
@@ -147,8 +148,14 @@ class FollowTests: XCTestCase {
     } else {
       follow = nil
     }
+    followAttributes = follow?.attributes
     
-    XCTAssertNil(follow)
+    XCTAssertNotNil(follow)
+    
+    XCTAssertEqual(follow?.objectID, "4")
+    XCTAssertEqual(follow?.type, "follows")
+    
+    XCTAssertNil(followAttributes)
   }
   
   func testFollowInvalidNilData() {
@@ -160,7 +167,13 @@ class FollowTests: XCTestCase {
     } else {
       follow = nil
     }
+    followAttributes = follow?.attributes
     
-    XCTAssertNil(follow)
+    XCTAssertNotNil(follow)
+    
+    XCTAssertEqual(follow?.objectID, "4")
+    XCTAssertEqual(follow?.type, "follows")
+    
+    XCTAssertNil(followAttributes)
   }
 }

@@ -42,7 +42,8 @@ class ProfileLinkTests: XCTestCase {
   ]
   
   let invalidMissingDataJSON: [String : Any] = [
-    "id" : "",
+    "id" : "4",
+    "type" : "profileLinks",
     "links" : [
       "self" : "https://kitsu.io/api/edge/profile-links/4"
     ],
@@ -52,8 +53,8 @@ class ProfileLinkTests: XCTestCase {
   ]
   
   let invalidNilDataJSON: [String : Any?] = [
-    "id" : nil,
-    "type" : nil,
+    "id" : "4",
+    "type" : "profileLinks",
     "links" : [
       "self" : "https://kitsu.io/api/edge/profile-links/4"
     ],
@@ -152,8 +153,14 @@ class ProfileLinkTests: XCTestCase {
     } else {
       profileLink = nil
     }
+    profileLinkAttributes = profileLink?.attributes
     
-    XCTAssertNil(profileLink)
+    XCTAssertNotNil(profileLink)
+    
+    XCTAssertEqual(profileLink?.objectID, "4")
+    XCTAssertEqual(profileLink?.type, "profileLinks")
+    
+    XCTAssertNil(profileLinkAttributes)
   }
   
   func testProfileLinkInvalidNilData() {
@@ -165,7 +172,13 @@ class ProfileLinkTests: XCTestCase {
     } else {
       profileLink = nil
     }
+    profileLinkAttributes = profileLink?.attributes
     
-    XCTAssertNil(profileLink)
+    XCTAssertNotNil(profileLink)
+    
+    XCTAssertEqual(profileLink?.objectID, "4")
+    XCTAssertEqual(profileLink?.type, "profileLinks")
+    
+    XCTAssertNil(profileLinkAttributes)
   }
 }

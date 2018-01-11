@@ -43,34 +43,35 @@ class RoleTests: XCTestCase {
     ]
   ]
   
-  let invalidMissingDataJSON: [String : Any] = [
-    "id" : "3",
-    "links" : [
-      "self" : "https://kitsu.io/api/edge/roles/4"
-    ],
-    "attributes": [
-      "createdAt": "2016-12-12T14:32:06.707Z",
-      "updatedAt": "2016-12-12T14:32:06.707Z",
-      "name": "admin",
-      "resourceId": "3",
-      "resourceType": "person"
-    ]
-  ]
-  
-  let invalidNilDataJSON: [String : Any?] = [
-    "id" : nil,
-    "type" : nil,
-    "links" : [
-      "self" : "https://kitsu.io/api/edge/roles/4"
-    ],
-    "attributes": [
-      "createdAt": "2016-12-12T14:32:06.707Z",
-      "updatedAt": "2016-12-12T14:32:06.707Z",
-      "name": "admin",
-      "resourceId": "3",
-      "resourceType": "person"
-    ]
-  ]
+//  let invalidMissingDataJSON: [String : Any] = [
+//    "id" : "4",
+//    "type" : "roles",
+//    "links" : [
+//      "self" : "https://kitsu.io/api/edge/roles/4"
+//    ],
+//    "attributes": [
+//      "createdAt": "2016-12-12T14:32:06.707Z",
+//      "updatedAt": "2016-12-12T14:32:06.707Z",
+//      "name": "admin",
+//      "resourceId": "3",
+//      "resourceType": "person"
+//    ]
+//  ]
+//
+//  let invalidNilDataJSON: [String : Any?] = [
+//    "id" : "4",
+//    "type" : "roles",
+//    "links" : [
+//      "self" : "https://kitsu.io/api/edge/roles/4"
+//    ],
+//    "attributes": [
+//      "createdAt": "2016-12-12T14:32:06.707Z",
+//      "updatedAt": "2016-12-12T14:32:06.707Z",
+//      "name": "admin",
+//      "resourceId": "3",
+//      "resourceType": "person"
+//    ]
+//  ]
   
   var role: Role?
   var roleAttributes: RoleAttributes?
@@ -157,30 +158,42 @@ class RoleTests: XCTestCase {
     XCTAssertNil(roleAttributes?.resourceType)
   }
   
-  func testRoleInvalidMissingData() {
-    let json = invalidMissingDataJSON
-    
-    if JSONSerialization.isValidJSONObject(json as Any) {
-      let data = try? JSONSerialization.data(withJSONObject: json as Any)
-      role = try? decoder.decode(Role.self, from: data!)
-    } else {
-      role = nil
-    }
-    
-    XCTAssertNil(role)
-  }
-  
-  func testRoleInvalidNilData() {
-    let json = invalidNilDataJSON
-    
-    if JSONSerialization.isValidJSONObject(json as Any) {
-      let data = try? JSONSerialization.data(withJSONObject: json as Any)
-      role = try? decoder.decode(Role.self, from: data!)
-    } else {
-      role = nil
-    }
-    
-    XCTAssertNil(role)
-  }
+//  func testRoleInvalidMissingData() {
+//    let json = invalidMissingDataJSON
+//    
+//    if JSONSerialization.isValidJSONObject(json as Any) {
+//      let data = try? JSONSerialization.data(withJSONObject: json as Any)
+//      role = try? decoder.decode(Role.self, from: data!)
+//    } else {
+//      role = nil
+//    }
+//    roleAttributes = role?.attributes
+//    
+//    XCTAssertNotNil(role)
+//    
+//    XCTAssertEqual(role?.objectID, "4")
+//    XCTAssertEqual(role?.type, "roles")
+//    
+//    XCTAssertNil(roleAttributes)
+//  }
+//  
+//  func testRoleInvalidNilData() {
+//    let json = invalidNilDataJSON
+//    
+//    if JSONSerialization.isValidJSONObject(json as Any) {
+//      let data = try? JSONSerialization.data(withJSONObject: json as Any)
+//      role = try? decoder.decode(Role.self, from: data!)
+//    } else {
+//      role = nil
+//    }
+//    roleAttributes = role?.attributes
+//    
+//    XCTAssertNotNil(role)
+//    
+//    XCTAssertEqual(role?.objectID, "4")
+//    XCTAssertEqual(role?.type, "roles")
+//    
+//    XCTAssertNil(roleAttributes)
+//  }
 }
 

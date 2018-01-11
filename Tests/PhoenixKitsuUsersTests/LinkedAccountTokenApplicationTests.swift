@@ -14,13 +14,13 @@ class LinkedAccountTokenApplicationTests: XCTestCase {
     "uid" : nil
   ]
   
-  let invalidMissingDataJSON: [String : Any] = [
-    "uid" : "4"
-  ]
-  
-  let invalidNilDataJSON: [String : Any?] = [
-    "uid" : "4"
-  ]
+//  let invalidMissingDataJSON: [String : Any] = [
+//    "uid" : "4"
+//  ]
+//
+//  let invalidNilDataJSON: [String : Any?] = [
+//    "uid" : "4"
+//  ]
   
   var linkedAccountTokenApplication: LinkedAccountTokenApplication?
   
@@ -76,36 +76,36 @@ class LinkedAccountTokenApplicationTests: XCTestCase {
     XCTAssertNil(linkedAccountTokenApplication?.uid)
   }
   
-  func testLinkedAccountTokenApplicationInvalidMissingData() {
-    let json = invalidMissingDataJSON
-    
-    if JSONSerialization.isValidJSONObject(json as Any) {
-      let data = try? JSONSerialization.data(withJSONObject: json as Any)
-      linkedAccountTokenApplication = try? decoder.decode(LinkedAccountTokenApplication.self,
-                                                          from: data!)
-    } else {
-      linkedAccountTokenApplication = nil
-    }
-    
-    XCTAssertNotNil(linkedAccountTokenApplication)
-    
-    XCTAssertEqual(linkedAccountTokenApplication?.uid, "4")
-  }
-  
-  func testLinkedAccountTokenApplicationInvalidNilData() {
-    let json = invalidNilDataJSON
-    
-    if JSONSerialization.isValidJSONObject(json as Any) {
-      let data = try? JSONSerialization.data(withJSONObject: json as Any)
-      linkedAccountTokenApplication = try? decoder.decode(LinkedAccountTokenApplication.self,
-                                                          from: data!)
-    } else {
-      linkedAccountTokenApplication = nil
-    }
-    
-    XCTAssertNotNil(linkedAccountTokenApplication)
-    
-    XCTAssertEqual(linkedAccountTokenApplication?.uid, "4")
-  }
+//  func testLinkedAccountTokenApplicationInvalidMissingData() {
+//    let json = invalidMissingDataJSON
+//    
+//    if JSONSerialization.isValidJSONObject(json as Any) {
+//      let data = try? JSONSerialization.data(withJSONObject: json as Any)
+//      linkedAccountTokenApplication = try? decoder.decode(LinkedAccountTokenApplication.self,
+//                                                          from: data!)
+//    } else {
+//      linkedAccountTokenApplication = nil
+//    }
+//    
+//    XCTAssertNotNil(linkedAccountTokenApplication)
+//    
+//    XCTAssertEqual(linkedAccountTokenApplication?.uid, "4")
+//  }
+//  
+//  func testLinkedAccountTokenApplicationInvalidNilData() {
+//    let json = invalidNilDataJSON
+//    
+//    if JSONSerialization.isValidJSONObject(json as Any) {
+//      let data = try? JSONSerialization.data(withJSONObject: json as Any)
+//      linkedAccountTokenApplication = try? decoder.decode(LinkedAccountTokenApplication.self,
+//                                                          from: data!)
+//    } else {
+//      linkedAccountTokenApplication = nil
+//    }
+//    
+//    XCTAssertNotNil(linkedAccountTokenApplication)
+//    
+//    XCTAssertEqual(linkedAccountTokenApplication?.uid, "4")
+//  }
 }
 

@@ -196,7 +196,8 @@ class UserTests: XCTestCase {
   ]
   
   let invalidMissingDataJSON: [String : Any] = [
-    "id" : "",
+    "id" : "4",
+    "type" : "users",
     "links" : [
       "self" : "https://kitsu.io/api/edge/users/4"
     ],
@@ -206,8 +207,8 @@ class UserTests: XCTestCase {
   ]
   
   let invalidNilDataJSON: [String : Any?] = [
-    "id" : nil,
-    "type" : nil,
+    "id" : "4",
+    "type" : "users",
     "links" : [
       "self" : "https://kitsu.io/api/edge/users/4"
     ],
@@ -421,8 +422,14 @@ class UserTests: XCTestCase {
     } else {
       user = nil
     }
+    userAttributes = user?.attributes
     
-    XCTAssertNil(user)
+    XCTAssertNotNil(user)
+    
+    XCTAssertEqual(user?.objectID, "4")
+    XCTAssertEqual(user?.type, "users")
+    
+    XCTAssertNil(userAttributes)
   }
   
   func testUserInvalidNilData() {
@@ -434,8 +441,14 @@ class UserTests: XCTestCase {
     } else {
       user = nil
     }
+    userAttributes = user?.attributes
     
-    XCTAssertNil(user)
+    XCTAssertNotNil(user)
+    
+    XCTAssertEqual(user?.objectID, "4")
+    XCTAssertEqual(user?.type, "users")
+    
+    XCTAssertNil(userAttributes)
   }
 }
 

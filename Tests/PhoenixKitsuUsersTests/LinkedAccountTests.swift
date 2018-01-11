@@ -240,8 +240,14 @@ class LinkedAccountTests: XCTestCase {
     } else {
       linkedAccount = nil
     }
+    linkedAccountAttributes = linkedAccount?.attributes
     
-    XCTAssertNil(linkedAccount)
+    XCTAssertNotNil(linkedAccount)
+    
+    XCTAssertEqual(linkedAccount?.objectID, "1911")
+    XCTAssertEqual(linkedAccount?.type, "linkedAccounts")
+    
+    XCTAssertNil(linkedAccountAttributes)
   }
   
   func testLinkedAccountInvalidNilData() {
@@ -253,8 +259,14 @@ class LinkedAccountTests: XCTestCase {
     } else {
       linkedAccount = nil
     }
+    linkedAccountAttributes = linkedAccount?.attributes
     
-    XCTAssertNil(linkedAccount)
+    XCTAssertNotNil(linkedAccount)
+    
+    XCTAssertEqual(linkedAccount?.objectID, "1911")
+    XCTAssertEqual(linkedAccount?.type, "linkedAccounts")
+    
+    XCTAssertNil(linkedAccountAttributes)
   }
 }
 
