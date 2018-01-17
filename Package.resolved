@@ -14,9 +14,9 @@
         "package": "PhoenixKitsuCore",
         "repositoryURL": "https://github.com/JasonLighthunter/Phoenix-Kitsu-Core.git",
         "state": {
-          "branch": "setup",
-          "revision": "34dde99c74ae41c4f4257d86ce23d8f35915668e",
-          "version": null
+          "branch": null,
+          "revision": "bdfbdc499b377f48f60fefa0ae5a160e52a3c4de",
+          "version": "0.1.3"
         }
       },
       {

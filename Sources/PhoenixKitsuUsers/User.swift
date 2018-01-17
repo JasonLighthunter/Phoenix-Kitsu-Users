@@ -16,7 +16,6 @@ public class UserAttributes: KitsuObjectAttributesWithTimestamp {
   public let waifuOrHusbando: String?
   public let followersCount: Int
   public let followingCount: Int
-  public let lifeSpentOnAnime: Int
   public let birthday: String?
   public let gender: String?
   public let commentsCount: Int
@@ -59,7 +58,6 @@ public class UserAttributes: KitsuObjectAttributesWithTimestamp {
     case waifuOrHusbando
     case followersCount
     case followingCount
-    case lifeSpentOnAnime
     case birthday
     case gender
     case commentsCount
