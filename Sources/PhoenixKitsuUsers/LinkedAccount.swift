@@ -15,7 +15,7 @@ public class LinkedAccountAttributes: KitsuObjectAttributesWithTimestamp {
   public let shareFrom: Bool
   public let syncTo: Bool
   public let disabledReason: String?
-  
+
   private enum CodingKeys: String, CodingKey {
     case createdAt
     case updatedAt

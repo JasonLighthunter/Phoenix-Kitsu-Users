@@ -2,21 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "Alamofire",
-        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
-        "state": {
-          "branch": null,
-          "revision": "bc973c5311ce3db3f01a9fcde027fb11fa2254bf",
-          "version": "4.6.0"
-        }
-      },
-      {
         "package": "PhoenixKitsuCore",
         "repositoryURL": "https://github.com/JasonLighthunter/Phoenix-Kitsu-Core.git",
         "state": {
-          "branch": null,
-          "revision": "bdfbdc499b377f48f60fefa0ae5a160e52a3c4de",
-          "version": "0.1.3"
+          "branch": "feature/AuthorizedRequest",
+          "revision": "5db5b1c6161423e09167ee13d0adf52b668639a5",
+          "version": null
         }
       },
       {
@@ -24,8 +15,8 @@
         "repositoryURL": "https://github.com/JasonLighthunter/Requestable.git",
         "state": {
           "branch": null,
-          "revision": "b8691cc0836c767c7ab534e7ef9e994892b94392",
-          "version": "1.0.0"
+          "revision": "27401203c102fb34ab3eb2e997b59c849a563669",
+          "version": "1.0.2"
         }
       }
     ]

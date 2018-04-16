@@ -9,8 +9,8 @@ let package = Package(
     .library(name: "PhoenixKitsuUsers", targets: ["PhoenixKitsuUsers"])
   ],
   dependencies: [
-    .package(url: "https://github.com/JasonLighthunter/Requestable.git", from: "1.0.0"),
-    .package(url: "https://github.com/JasonLighthunter/Phoenix-Kitsu-Core.git", from: "0.1.3")
+    .package(url: "https://github.com/JasonLighthunter/Requestable.git", from: "1.0.2"),
+    .package(url: "https://github.com/JasonLighthunter/Phoenix-Kitsu-Core.git", .branch("feature/AuthorizedRequest"))
   ],
   targets: [
     .target(name: "PhoenixKitsuUsers", dependencies: ["Requestable", "PhoenixKitsuCore"]),

@@ -3,12 +3,12 @@ import XCTest
 
 class UserTests: XCTestCase {
   let decoder = JSONDecoder()
-  
-  let fullyFilledJSON: [String : Any] = [
-    "id" : "4",
-    "type" : "users",
-    "links" : [
-      "self" : "https://kitsu.io/api/edge/users/4"
+
+  let fullyFilledJSON: [String: Any] = [
+    "id": "4",
+    "type": "users",
+    "links": [
+      "self": "https://kitsu.io/api/edge/users/4"
     ],
     "attributes": [
       "createdAt": "2013-03-15T11:44:38.314Z",
@@ -41,25 +41,10 @@ class UserTests: XCTestCase {
       "website": "https://example.com",
       "avatar": [
         "tiny": "https://media.kitsu.io/users/avatars/634/tiny.jpeg?1461158753",
-        "small": "https://media.kitsu.io/users/avatars/634/small.jpeg?1461158753",
-        "medium": "https://media.kitsu.io/users/avatars/634/medium.jpeg?1461158753",
-        "large": "https://media.kitsu.io/users/avatars/634/large.jpeg?1461158753",
         "original": "https://media.kitsu.io/users/avatars/634/original.jpeg?1461158753",
         "meta": [
           "dimensions": [
             "tiny": [
-              "width": nil,
-              "height": nil
-            ],
-            "small": [
-              "width": nil,
-              "height": nil
-            ],
-            "medium": [
-              "width": nil,
-              "height": nil
-            ],
-            "large": [
               "width": nil,
               "height": nil
             ]
@@ -68,20 +53,10 @@ class UserTests: XCTestCase {
       ],
       "coverImage": [
         "tiny": "https://media.kitsu.io/users/cover_images/634/tiny.jpg?1498158458",
-        "small": "https://media.kitsu.io/users/cover_images/634/small.jpg?1498158458",
-        "large": "https://media.kitsu.io/users/cover_images/634/large.jpg?1498158458",
         "original": "https://media.kitsu.io/users/cover_images/634/original.jpeg?1498158458",
         "meta": [
           "dimensions": [
             "tiny": [
-              "width": nil,
-              "height": nil
-            ],
-            "small": [
-              "width": nil,
-              "height": nil
-            ],
-            "large": [
               "width": nil,
               "height": nil
             ]
@@ -104,12 +79,12 @@ class UserTests: XCTestCase {
       "status": "registered"
     ]
   ]
-  
-  let validMissingDataJSON: [String : Any] = [
-    "id" : "4",
-    "type" : "users",
-    "links" : [
-      "self" : "https://kitsu.io/api/edge/users/4"
+
+  let validMissingDataJSON: [String: Any] = [
+    "id": "4",
+    "type": "users",
+    "links": [
+      "self": "https://kitsu.io/api/edge/users/4"
     ],
     "attributes": [
       "createdAt": "2013-03-15T11:44:38.314Z",
@@ -140,12 +115,12 @@ class UserTests: XCTestCase {
       "status": "registered"
     ]
   ]
-  
-  let validNilDataJSON: [String : Any?] = [
-    "id" : "4",
-    "type" : "users",
-    "links" : [
-      "self" : "https://kitsu.io/api/edge/users/4"
+
+  let validNilDataJSON: [String: Any?] = [
+    "id": "4",
+    "type": "users",
+    "links": [
+      "self": "https://kitsu.io/api/edge/users/4"
     ],
     "attributes": [
       "createdAt": "2013-03-15T11:44:38.314Z",
@@ -194,43 +169,43 @@ class UserTests: XCTestCase {
       "status": "registered"
     ]
   ]
-  
-  let invalidMissingDataJSON: [String : Any] = [
-    "id" : "4",
-    "type" : "users",
-    "links" : [
-      "self" : "https://kitsu.io/api/edge/users/4"
+
+  let invalidMissingDataJSON: [String: Any] = [
+    "id": "4",
+    "type": "users",
+    "links": [
+      "self": "https://kitsu.io/api/edge/users/4"
     ],
-    "attributes" : [
-      "createdAt" : "2017-08-08T12:39:19.217Z",
+    "attributes": [
+      "createdAt": "2017-08-08T12:39:19.217Z"
     ]
   ]
-  
-  let invalidNilDataJSON: [String : Any?] = [
-    "id" : "4",
-    "type" : "users",
-    "links" : [
-      "self" : "https://kitsu.io/api/edge/users/4"
+
+  let invalidNilDataJSON: [String: Any?] = [
+    "id": "4",
+    "type": "users",
+    "links": [
+      "self": "https://kitsu.io/api/edge/users/4"
     ],
-    "attributes" : [
-      "createdAt" : "2017-08-08T12:39:19.217Z",
-      "updatedAt" : nil
+    "attributes": [
+      "createdAt": "2017-08-08T12:39:19.217Z",
+      "updatedAt": nil
     ]
   ]
-  
+
   var user: User?
   var userAttributes: UserAttributes?
-  
+
   override func tearDown() {
     user = nil
     userAttributes = nil
-    
+
     super.tearDown()
   }
-  
+
   func testUserFullyFilled() {
     let json = fullyFilledJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       user = try? decoder.decode(User.self, from: data!)
@@ -238,14 +213,12 @@ class UserTests: XCTestCase {
       user = nil
     }
     userAttributes = user?.attributes
-    
+
     XCTAssertNotNil(user)
-    
     XCTAssertEqual(user?.objectID, "4")
     XCTAssertEqual(user?.type, "users")
-    
+
     XCTAssertNotNil(userAttributes)
-    
     XCTAssertEqual(userAttributes?.createdAt, "2013-03-15T11:44:38.314Z")
     XCTAssertEqual(userAttributes?.updatedAt, "2018-01-04T22:52:24.879Z")
     XCTAssertEqual(userAttributes?.name, "JasonLighthunter")
@@ -270,10 +243,8 @@ class UserTests: XCTestCase {
     XCTAssertEqual(userAttributes?.title, "testTitle")
     XCTAssertTrue((userAttributes?.hasCompletedProfile)!)
     XCTAssertTrue((userAttributes?.hasCompletedFeed)!)
-    
     XCTAssertNotNil(userAttributes?.avatar)
     XCTAssertNotNil(userAttributes?.coverImage)
-    
     XCTAssertEqual(userAttributes?.email, "test@example.nl")
     XCTAssertEqual(userAttributes?.password, "test")
     XCTAssertTrue((userAttributes?.isConfirmed)!)
@@ -289,10 +260,10 @@ class UserTests: XCTestCase {
     XCTAssertEqual(userAttributes?.facebookID, "facebooktest")
     XCTAssertEqual(userAttributes?.status, RegistrationStatusEnum.registered)
   }
-  
+
   func testUserValidMissingData() {
     let json = validMissingDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       user = try? decoder.decode(User.self, from: data!)
@@ -300,14 +271,12 @@ class UserTests: XCTestCase {
       user = nil
     }
     userAttributes = user?.attributes
-    
+
     XCTAssertNotNil(user)
-    
     XCTAssertEqual(user?.objectID, "4")
     XCTAssertEqual(user?.type, "users")
-    
+
     XCTAssertNotNil(userAttributes)
-    
     XCTAssertEqual(userAttributes?.createdAt, "2013-03-15T11:44:38.314Z")
     XCTAssertEqual(userAttributes?.updatedAt, "2018-01-04T22:52:24.879Z")
     XCTAssertNil(userAttributes?.name)
@@ -349,10 +318,10 @@ class UserTests: XCTestCase {
     XCTAssertNil(userAttributes?.facebookID)
     XCTAssertEqual(userAttributes?.status, RegistrationStatusEnum.registered)
   }
-  
+
   func testUserValidNilData() {
     let json = validNilDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       user = try? decoder.decode(User.self, from: data!)
@@ -360,14 +329,12 @@ class UserTests: XCTestCase {
       user = nil
     }
     userAttributes = user?.attributes
-    
+
     XCTAssertNotNil(user)
-    
     XCTAssertEqual(user?.objectID, "4")
     XCTAssertEqual(user?.type, "users")
-    
+
     XCTAssertNotNil(userAttributes)
-    
     XCTAssertEqual(userAttributes?.createdAt, "2013-03-15T11:44:38.314Z")
     XCTAssertEqual(userAttributes?.updatedAt, "2018-01-04T22:52:24.879Z")
     XCTAssertNil(userAttributes?.name)
@@ -409,10 +376,10 @@ class UserTests: XCTestCase {
     XCTAssertNil(userAttributes?.facebookID)
     XCTAssertEqual(userAttributes?.status, RegistrationStatusEnum.registered)
   }
-  
+
   func testUserInvalidMissingData() {
     let json = invalidMissingDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       user = try? decoder.decode(User.self, from: data!)
@@ -420,18 +387,17 @@ class UserTests: XCTestCase {
       user = nil
     }
     userAttributes = user?.attributes
-    
+
     XCTAssertNotNil(user)
-    
     XCTAssertEqual(user?.objectID, "4")
     XCTAssertEqual(user?.type, "users")
-    
+
     XCTAssertNil(userAttributes)
   }
-  
+
   func testUserInvalidNilData() {
     let json = invalidNilDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       user = try? decoder.decode(User.self, from: data!)
@@ -439,13 +405,11 @@ class UserTests: XCTestCase {
       user = nil
     }
     userAttributes = user?.attributes
-    
+
     XCTAssertNotNil(user)
-    
     XCTAssertEqual(user?.objectID, "4")
     XCTAssertEqual(user?.type, "users")
-    
+
     XCTAssertNil(userAttributes)
   }
 }
-

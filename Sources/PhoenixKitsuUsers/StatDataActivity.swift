@@ -1,4 +1,4 @@
-public class StatDataActivity: Decodable {
+public struct StatDataActivity: Decodable {
   public let objectID: Int?
   public let event: String?
   public let userID: Int?

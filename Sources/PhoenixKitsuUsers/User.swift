@@ -46,7 +46,7 @@ public class UserAttributes: KitsuObjectAttributesWithTimestamp {
   public let theme: ThemeEnum
   public let facebookID: String?
   public let status: RegistrationStatusEnum
-  
+
   private enum CodingKeys: String, CodingKey {
     case createdAt
     case updatedAt

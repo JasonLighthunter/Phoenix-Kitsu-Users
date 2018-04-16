@@ -1,4 +1,4 @@
-public class StatDataActivityChangedData: Decodable {
+public struct StatDataActivityChangedData: Decodable {
   public let objectID: [Int?]?
   public let status: [String?]?
   public let userID: [Int?]?
@@ -12,7 +12,7 @@ public class StatDataActivityChangedData: Decodable {
   public let updatedAt: [String?]?
   public let progressedAt: [String?]?
   public let finishedAt: [String?]?
- 
+
   private enum CodingKeys: String, CodingKey {
     case objectID = "id"
     case status

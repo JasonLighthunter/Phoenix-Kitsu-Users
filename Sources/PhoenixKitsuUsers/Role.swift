@@ -11,7 +11,7 @@ public class RoleAttributes: KitsuObjectAttributes {
   public let name: String?
   public let resourceID: String?
   public let resourceType: String?
-  
+
   private enum CodingKeys: String, CodingKey {
     case createdAt
     case updatedAt

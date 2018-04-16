@@ -1,11 +1,11 @@
-public class StatData: Decodable {
+public struct StatData: Decodable {
   public let total: Int?
   public let totalMedia: Int?
   public let activity: [StatDataActivity]?
-  public let allCategories: [String : Int]?
-  public let allTime: [String : Int]?
-  public let allYears: [String : Int]?
-  
+  public let allCategories: [String: Int]?
+  public let allTime: [String: Int]?
+  public let allYears: [String: Int]?
+
   private enum CodingKeys: String, CodingKey {
     case total
     case totalMedia = "total_media"
